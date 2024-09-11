@@ -27,6 +27,7 @@ import ru.yandex.practicum.contacts.presentation.sort.SortDialogFragment;
 import ru.yandex.practicum.contacts.presentation.sort.model.SortType;
 import ru.yandex.practicum.contacts.ui.widget.DividerItemDecoration;
 import ru.yandex.practicum.contacts.utils.android.Debouncer;
+import ru.yandex.practicum.contacts.utils.android.OnDebounceListener;
 import ru.yandex.practicum.contacts.utils.widget.EditTextUtils;
 
 import androidx.annotation.IdRes;
@@ -211,6 +212,11 @@ public class MainActivity extends AppCompatActivity implements OnDebounceListene
 
     private void clearSearch() {
         binding.searchLayout.searchText.setText("");
+        viewModel.search();
+    }
+
+    @Override
+    public void onDebounce() {
         viewModel.search();
     }
 }

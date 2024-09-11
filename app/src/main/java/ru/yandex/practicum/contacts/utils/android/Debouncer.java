@@ -15,8 +15,12 @@ public class Debouncer {
 
     private final OnDebounceListener listener;
 
+    final Debouncer debouncer = new Debouncer(this);
+
     public Debouncer(OnDebounceListener listener) {
+
         this.listener = listener;
+
     }
 
     private final Handler handler = new Handler(Looper.getMainLooper()) {
